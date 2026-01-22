@@ -6,7 +6,7 @@ const spacechip = {
 function accelerate(spacechip: {name: string, speed: number}, speed: number) {
   spacechip.speed = speed
 
-  return console.log(spacechip);
+  return console.log(spacechip)
 }
 
 accelerate(spacechip, 10)
