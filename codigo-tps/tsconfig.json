@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "watch": true, //assiste os arquivos e compila a cada mudança
+  }
+}
