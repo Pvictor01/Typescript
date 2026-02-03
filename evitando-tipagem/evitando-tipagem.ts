@@ -5,7 +5,7 @@
 sendCar({driver: 'Vitor', speed: 100})
 sendCar({driver: 'Vitor'}) //com o ? a funçao aceita apenas 1 parametro*/
 
-let input: unknown // any desabilita o tsc, codigo fica só com js
+let input: any // any desabilita o tsc, codigo fica só com js
 
 input = 10
 input = '3'
