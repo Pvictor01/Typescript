@@ -1,5 +1,5 @@
 function sendSpaceship(name: string, captain: string) {
-  const spaceshipt = {
+  const spaceship = {
     name,
     captain,
     speed: 20,
@@ -7,9 +7,9 @@ function sendSpaceship(name: string, captain: string) {
     crew: []
   }
 
-  alert(`A nave ${spaceshipt.name} comandada pelo capitão ${spaceshipt.captain} foi enviada em uma missao`)
+  alert(`A nave ${spaceship.name} comandada pelo capitão ${spaceship.captain} foi enviada em uma missao`)
 
-  return spaceshipt
+  return spaceship
 }
 
 function accelerate(targetSpeed: number, spaceship: {name: string, speed: number}) {
@@ -25,8 +25,8 @@ function accelerate(targetSpeed: number, spaceship: {name: string, speed: number
 const spaceshipName = prompt('Qual o nome da nave?')
 const spaceshipCaptain = prompt('Qual o nome do capitão?')
 
-const currentSpaceshipt = sendSpaceship(spaceshipName, spaceshipCaptain)
+const currentSpaceship = sendSpaceship(spaceshipName, spaceshipCaptain)
 
 const speed = Number(prompt('Qual a velocidade da nave?'))
 
-accelerate(speed, currentSpaceshipt)
+accelerate(speed, currentSpaceship)
