@@ -1,0 +1,16 @@
+{
+  "name": "projeto-declarando-tipos",
+  "version": "1.0.0",
+  "description": "Crie um arquivo TypeScript contendo as 4 funções descritas abaixo.",
+  "main": "index.js",
+  "scripts": {
+    "tsc-watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
