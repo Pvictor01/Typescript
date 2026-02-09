@@ -12,31 +12,30 @@ function menu() {
   return menu
 }
 
+function createSpaceship(spaceshipName: string, pilot: string, crewLimit: number, crew: string[], inMission: false) {
+  const spaceship = {
+    spaceshipName,
+    pilot,
+    crewLimit,
+    crew,
+    inMission
+  }
+
+  return spaceship
+}
+
 let userOption = ''
 
 do {
   userOption = menu()
-  
+
   switch (userOption) {
     case '1':
-      function createSpaceship(spaceshipName: string, pilot: string, crewLimit: number, crew: string[], inMission: false) {
-        const spaceship = {
-          spaceshipName,
-          pilot,
-          crewLimit,
-          crew,
-          inMission
-        }
-      
-        return spaceship
-      }
-
       const spaceshipName = prompt('Qual o nome da nave?')
       const spaceshipPilot = prompt('Qual o nome do piloto?')
       const crewLimit = Number(prompt('Quantos tripulantes a nave suporta?'))
       const crew = []
       const inMission = false
-
       const sendSpaceship = createSpaceship(spaceshipName, spaceshipPilot, crewLimit, crew, inMission)
 
       spaceships.push(sendSpaceship)
@@ -50,7 +49,6 @@ do {
     case '0':
     break;
     default:
-      
   }
 } while (userOption !== '0')
 
