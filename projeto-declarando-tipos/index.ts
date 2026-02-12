@@ -36,6 +36,10 @@ function addCrewMember(member: string, spaceship: {crewLimit: number, crew: stri
   return spaceship
 }
 
+function sendSpaceship(spaceship: {inMission: boolean}) {
+
+}
+
 let userOption = ''
 
 do {
@@ -45,10 +49,10 @@ do {
     case '1':
       const spaceshipName = prompt('Qual o nome da nave?')
       const spaceshipPilot = prompt('Qual o nome do piloto?')
-      const crewLimit = Number(prompt('Quantos tripulantes a nave suporta?'))
+      const crewLimit = Number(prompt('Quantos tripulantes a nave suporta?')) 
       const crew = []
       const inMission = false
-      const id = spaceships.length + 1
+      const id = spaceships.length + 1      
       const sendSpaceship = createSpaceship(spaceshipName, spaceshipPilot, crewLimit, crew, inMission, id)
 
       spaceships.push(sendSpaceship)
@@ -75,7 +79,7 @@ do {
         if(confirmation) {
           addCrewMember(prompt('Qual o nome do tripulante?'), spaceship)
         } else {
-          alert('Voltando ao menu principal')
+          alert('Membro não adicionado')
         }
       })
       break

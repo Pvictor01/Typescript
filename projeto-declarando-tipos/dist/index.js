@@ -31,6 +31,8 @@ function addCrewMember(member, spaceship) {
     }
     return spaceship;
 }
+function sendSpaceship(spaceship) {
+}
 let userOption = '';
 do {
     userOption = menu();
@@ -65,7 +67,7 @@ do {
                     addCrewMember(prompt('Qual o nome do tripulante?'), spaceship);
                 }
                 else {
-                    alert('Voltando ao menu principal');
+                    alert('Membro não adicionado');
                 }
             });
             break;
