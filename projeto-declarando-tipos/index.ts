@@ -37,7 +37,7 @@ function addCrewMember(member: string, spaceship: {crewLimit: number, crew: stri
 }
 
 function sendSpaceship(spaceship: {inMission: boolean}) {
-
+  
 }
 
 let userOption = ''
@@ -84,6 +84,18 @@ do {
       })
       break
     case '3':
+      break
+    case '4':
+      spaceships.forEach(spaceship => {
+        alert(`
+          Nave: ${spaceship.spaceshipName}
+          Piloto: ${spaceship.pilot}
+          Limite de Tripulantes: ${spaceship.crewLimit}
+          Tripulantes: ${spaceship.crew}
+          Na missão? ${spaceship.inMission ? 'Sim' : 'Não'}
+          id: ${spaceship.id}
+        `)
+      });
       break
     case '0':
     break;
