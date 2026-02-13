@@ -25,6 +25,9 @@ function addCrewMember(member, spaceship) {
     if (spaceship.crew.length >= spaceship.crewLimit) {
         alert('Limite de tripulantes atingido');
     }
+    else if (member === '' || member === null) {
+        alert('Nome do tripulante não informado');
+    }
     else {
         spaceship.crew.push(member);
         alert(`O tripulante ${member} foi adicionado a nave ${spaceship.spaceshipName}`);
