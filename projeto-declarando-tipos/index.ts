@@ -38,8 +38,25 @@ function addCrewMember(member: string, spaceship: {crewLimit: number, crew: stri
   return spaceship
 }
 
-function sendSpaceship(spaceship: {inMission: boolean}) {
-  
+function sendShip(spaceship: {spaceshipName: string, inMission: boolean, id: number}) {
+  const idShip = Number(prompt('Qual o id da nave?'))
+
+  if(spaceship.id === idShip) {
+    const sendShip = prompt('Deseja enviar a nave para missão? S/N')
+
+    if(sendShip.toUpperCase() === 'S') {
+      spaceship.inMission = true
+      alert(`A nave ${spaceship.spaceshipName} foi enviada para missão`)
+    } else if(sendShip.toUpperCase() === 'N') {
+      alert('A nave não foi enviada para missão')
+    } else {
+      alert('Opção inválida')
+    }
+  } else {
+    alert('Nave não encontrada')
+  }
+
+  return spaceship
 }
 
 let userOption = ''
@@ -86,6 +103,7 @@ do {
       })
       break
     case '3':
+      sendShip(spaceships[spaceships.length - 1])
       break
     case '4':
       spaceships.forEach(spaceship => {
