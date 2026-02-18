@@ -39,6 +39,11 @@ function addCrewMember(member: string, spaceship: {crewLimit: number, crew: stri
 }
 
 function sendShip(spaceship: {spaceshipName: string, inMission: boolean, id: number}) {
+  if(spaceships.length === 0) {
+    alert('Nenhuma nave cadastrada')
+    return
+  }
+
   const idShip = Number(prompt('Qual o id da nave?'))
 
   if(spaceship.id === idShip && spaceship.inMission === false) {

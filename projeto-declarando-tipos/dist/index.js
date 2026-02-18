@@ -35,8 +35,12 @@ function addCrewMember(member, spaceship) {
     return spaceship;
 }
 function sendShip(spaceship) {
+    if (spaceships.length === 0) {
+        alert('Nenhuma nave cadastrada');
+        return;
+    }
     const idShip = Number(prompt('Qual o id da nave?'));
-    if (spaceship.id === idShip) {
+    if (spaceship.id === idShip && spaceship.inMission === false) {
         const sendShip = prompt('Deseja enviar a nave para missão? S/N');
         if (sendShip.toUpperCase() === 'S') {
             spaceship.inMission = true;
@@ -48,6 +52,9 @@ function sendShip(spaceship) {
         else {
             alert('Opção inválida');
         }
+    }
+    else if (spaceship.id === idShip && spaceship.inMission === true) {
+        alert('Nave já está em missão');
     }
     else {
         alert('Nave não encontrada');
