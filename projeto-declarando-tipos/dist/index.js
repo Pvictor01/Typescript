@@ -40,7 +40,7 @@ function sendShip(spaceship) {
         return;
     }
     const idShip = Number(prompt('Qual o id da nave?'));
-    if (spaceship.id === idShip && spaceship.inMission === false) {
+    if (spaceship.id === idShip && spaceship.inMission === false && spaceship.crew.length >= Math.floor(spaceship.crewLimit / 3)) {
         const sendShip = prompt('Deseja enviar a nave para missão? S/N');
         if (sendShip.toUpperCase() === 'S') {
             spaceship.inMission = true;
@@ -55,6 +55,9 @@ function sendShip(spaceship) {
     }
     else if (spaceship.id === idShip && spaceship.inMission === true) {
         alert('Nave já está em missão');
+    }
+    else if (spaceship.id === idShip && spaceship.inMission === false && spaceship.crew.length < Math.floor(spaceship.crewLimit / 3)) {
+        alert('Tripulação insuficiente');
     }
     else {
         alert('Nave não encontrada');
@@ -113,10 +116,10 @@ do {
           id: ${spaceship.id}
         `);
             });
+            console.log(spaceships);
             break;
         case '0':
             break;
         default:
     }
 } while (userOption !== '0');
-console.log(spaceships);

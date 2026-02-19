@@ -38,7 +38,7 @@ function addCrewMember(member: string, spaceship: {crewLimit: number, crew: stri
   return spaceship
 }
 
-function sendShip(spaceship: {spaceshipName: string, inMission: boolean, id: number}) {
+function sendShip(spaceship: {crewLimit: number, crew: string[], spaceshipName: string, inMission: boolean, id: number}) {
   if(spaceships.length === 0) {
     alert('Nenhuma nave cadastrada')
     return
@@ -46,7 +46,7 @@ function sendShip(spaceship: {spaceshipName: string, inMission: boolean, id: num
 
   const idShip = Number(prompt('Qual o id da nave?'))
 
-  if(spaceship.id === idShip && spaceship.inMission === false) {
+  if(spaceship.id === idShip && spaceship.inMission === false  && spaceship.crew.length  >= Math.floor(spaceship.crewLimit / 3)) {
     const sendShip = prompt('Deseja enviar a nave para missão? S/N')
 
     if(sendShip.toUpperCase() === 'S') {
@@ -59,6 +59,8 @@ function sendShip(spaceship: {spaceshipName: string, inMission: boolean, id: num
     }
   } else if(spaceship.id === idShip && spaceship.inMission === true) {
     alert('Nave já está em missão')
+  } else if(spaceship.id === idShip && spaceship.inMission === false  && spaceship.crew.length  < Math.floor(spaceship.crewLimit / 3)) {
+    alert('Tripulação insuficiente')
   } else {
     alert('Nave não encontrada')
   }
@@ -121,15 +123,12 @@ do {
           Tripulantes: ${spaceship.crew}
           Na missão? ${spaceship.inMission ? 'Sim' : 'Não'}
           id: ${spaceship.id}
-        `)
-      });
+        `)        
+      })
+      console.log(spaceships)
       break
     case '0':
     break;
     default:
   }
 } while (userOption !== '0')
-
-
-
-console.log(spaceships)
