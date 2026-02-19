@@ -1,3 +1,5 @@
+//import * as fs from 'fs'
+
 const spaceships = []
 
 function menu() {
@@ -46,6 +48,12 @@ function sendShip(spaceship: {crewLimit: number, crew: string[], spaceshipName: 
 
   const idShip = Number(prompt('Qual o id da nave?'))
 
+  for(let i = 0; i < spaceships.length; i++) {
+    if(spaceships[i].id === idShip) {
+      spaceship = spaceships[i]
+    }
+  }
+
   if(spaceship.id === idShip && spaceship.inMission === false  && spaceship.crew.length  >= Math.floor(spaceship.crewLimit / 3)) {
     const sendShip = prompt('Deseja enviar a nave para missão? S/N')
 
@@ -84,6 +92,7 @@ do {
       const sendSpaceship = createSpaceship(spaceshipName, spaceshipPilot, crewLimit, crew, inMission, id)
 
       spaceships.push(sendSpaceship)
+      console.log(spaceships)      
 
       alert(`A nave ${sendSpaceship.spaceshipName} foi cadastrada com sucesso!`)
       break
@@ -115,6 +124,10 @@ do {
       sendShip(spaceships[spaceships.length - 1])
       break
     case '4':
+      if(spaceships.length === 0) {
+        alert('Nenhuma nave cadastrada')
+        break
+      }
       spaceships.forEach(spaceship => {
         alert(`
           Nave: ${spaceship.spaceshipName}
