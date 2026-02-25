@@ -1,4 +1,3 @@
-//import * as fs from 'fs'
 const spaceships = [];
 function menu() {
     const menu = prompt(`
