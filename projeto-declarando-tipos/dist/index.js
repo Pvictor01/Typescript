@@ -1,4 +1,5 @@
-const spaceships = [];
+//import * as fs from 'fs'
+const spaceships = JSON.parse(localStorage.getItem('spaceships') || '[]');
 function menu() {
     const menu = prompt(`
     Menu Pricipal - Envio de naves
@@ -82,7 +83,8 @@ do {
             const id = spaceships.length + 1;
             const sendSpaceship = createSpaceship(spaceshipName, spaceshipPilot, crewLimit, crew, inMission, id);
             spaceships.push(sendSpaceship);
-            console.log(spaceships);
+            const spaceshipsString = JSON.stringify(spaceships);
+            localStorage.setItem('spaceships', spaceshipsString);
             alert(`A nave ${sendSpaceship.spaceshipName} foi cadastrada com sucesso!`);
             break;
         case '2':

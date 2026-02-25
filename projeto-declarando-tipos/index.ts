@@ -1,6 +1,6 @@
-import * as fs from 'fs'
+//import * as fs from 'fs'
 
-const spaceships = []
+const spaceships = JSON.parse(localStorage.getItem('spaceships') || '[]')
 
 function menu() {
   const menu = prompt(`
@@ -92,8 +92,10 @@ do {
       const sendSpaceship = createSpaceship(spaceshipName, spaceshipPilot, crewLimit, crew, inMission, id)
 
       spaceships.push(sendSpaceship)
-      console.log(spaceships)      
+      const spaceshipsString = JSON.stringify(spaceships)
 
+      localStorage.setItem('spaceships', spaceshipsString)
+      
       alert(`A nave ${sendSpaceship.spaceshipName} foi cadastrada com sucesso!`)
       break
     case '2':
