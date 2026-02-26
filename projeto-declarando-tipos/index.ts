@@ -1,5 +1,3 @@
-//import * as fs from 'fs'
-
 const spaceships = JSON.parse(localStorage.getItem('spaceships') || '[]')
 
 function menu() {
