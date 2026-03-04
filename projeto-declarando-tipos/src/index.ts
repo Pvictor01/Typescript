@@ -53,12 +53,12 @@ function sendShip(spaceship: {crewLimit: number, crew: string[], spaceshipName: 
   }
 
   if(spaceship.id === idShip && spaceship.inMission === false  && spaceship.crew.length  >= Math.floor(spaceship.crewLimit / 3)) {
-    const sendShip = prompt('Deseja enviar a nave para missão? S/N')
+    const sendShip = confirm('Deseja enviar a nave para missão? S/N')
 
-    if(sendShip.toUpperCase() === 'S') {
+    if(sendShip === true) {
       spaceship.inMission = true
       alert(`A nave ${spaceship.spaceshipName} foi enviada para missão`)
-    } else if(sendShip.toUpperCase() === 'N') {
+    } else if(sendShip === false) {
       alert('A nave não foi enviada para missão')
     } else {
       alert('Opção inválida')
